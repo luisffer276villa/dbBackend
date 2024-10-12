@@ -1,0 +1,20 @@
+.container {
+    margin-top: 0; // Elimina el margen superior
+    padding-top: 0; // Elimina el padding superior si existe
+}
+
+.form-group {
+    margin-top: 0; // Elimina el margen superior
+}
+
+body {
+    margin: 0; // Elimina el margen por defecto
+    padding: 0; // Elimina el padding por defecto
+}
+
+.vh-100 {
+    display: flex;
+    justify-content: center; // Centra el contenido verticalmente
+    align-items: center; // Asegúrate que está centrado en el eje vertical
+    min-height: 100vh; // Asegúrate que ocupa toda la altura de la ventana
+}

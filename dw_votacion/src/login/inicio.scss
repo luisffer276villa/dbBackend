@@ -1,0 +1,22 @@
+// src/components/Navbar.scss
+
+$navbar-bg-color: #007bff; // Cambia este color al que desees
+
+.custom-navbar {
+  background-color: $navbar-bg-color;
+
+  .navbar-brand {
+    color: white; // Cambia el color del texto del enlace
+    &:hover {
+      color: #ddd; // Cambia el color del texto al pasar el mouse
+    }
+  }
+}
+.tittle_inicio{
+  color: #fff;
+  font-size: 50px;
+}
+.fondo {
+  background-color: #1a1a1a;  // Cambia el color de fondo a lo que desees
+  padding: 5%;
+}
