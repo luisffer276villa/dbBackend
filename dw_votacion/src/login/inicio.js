@@ -3,12 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import CustomNavbar from '../utils/navbar';
 import '../login/inicio.scss'; // Archivo SCSS para los estilos
+
 const Inicio = () => {
-  //definicion de rutas
+  // Definición de rutas
   const navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate('/votante');
-  }
+
+  const handleVotanteClick = () => {
+    navigate('/crearUsuario?tipo=1'); // Redirige a crear usuario con tipo 1 (Votante)
+  };
+
+  const handleAdminClick = () => {
+    navigate('/crearUsuario?tipo=2'); // Redirige a crear usuario con tipo 2 (Administrador)
+  };
 
   return (
     <>
@@ -19,13 +25,13 @@ const Inicio = () => {
         <Row className="m-auto w-100 fondo">
           <Col xs={6} className="d-flex justify-content-center flex-column align-items-center">
             <span className='tittle_inicio'>"Votante"</span><br />
-            <span className='txt'>Puedes votar por tu campaña ingresando aqui.</span><br />
-            <Button variant="secondary" onClick={handleButtonClick}>Ingresar</Button>
+            <span className='txt'>Puedes votar por tu campaña ingresando aquí.</span><br />
+            <Button variant="secondary" onClick={handleVotanteClick}>Ingresar</Button>
           </Col>
           <Col xs={6} className="d-flex justify-content-center flex-column align-items-center">
             <span className='tittle_inicio'>"Administrador"</span><br />
-            <span className='txt'>Puedes crear gestionar campañas ingresando aqui.</span><br />
-            <Button variant="secondary">Ingresar</Button>
+            <span className='txt'>Puedes crear y gestionar campañas ingresando aquí.</span><br />
+            <Button variant="secondary" onClick={handleAdminClick}>Ingresar</Button>
           </Col>
         </Row>
       </Container>

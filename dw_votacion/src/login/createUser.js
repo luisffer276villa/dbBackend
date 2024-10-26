@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import '../login/createUser.scss';
+import { useLocation, useNavigate } from 'react-router-dom';
 import CustomNavbar from '../utils/navbar';
-import { useNavigate } from 'react-router-dom';
 import { createUser } from '../server/services/userServices.js'; // Importamos el servicio
 
 const CreateUser = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const tipoUsuario = queryParams.get('tipo'); // Obtener el tipo de usuario desde los parámetros de consulta
+
   const [numeroColegiado, setNumeroColegiado] = useState('');
   const [dpi, setDpi] = useState('');
   const [nombre, setNombre] = useState('');
   const [correo, setCorreo] = useState('');
   const [clave, setClave] = useState('');
   const [fechaNacimiento, setFechaNacimiento] = useState('');
-  
+
   const handleButtonClick = () => {
     navigate('/login');
   }
@@ -28,6 +31,7 @@ const CreateUser = () => {
       correo,
       clave,
       fechaNacimiento,
+      tipoUsuario // Utilizar el tipo que viene de la URL
     };
 
     try {
@@ -61,7 +65,7 @@ const CreateUser = () => {
 
                   <Form.Group controlId="formDPI" className="mb-4">
                     <Form.Label>DPI</Form.Label>
-                    <Form.Control type="text" placeholder="Ingrese su DPI" value={dpi} onChange={(e)=> setDpi(e.target.value)} />
+                    <Form.Control type="text" placeholder="Ingrese su DPI" value={dpi} onChange={(e) => setDpi(e.target.value)} />
                   </Form.Group>
 
                   <Form.Group controlId="formNombre" className="mb-4">
